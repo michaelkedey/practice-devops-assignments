@@ -29,12 +29,7 @@ Happy coding! 🚀
 
 ## Building Skills
 
-### Git and Gitbash
-### Bash Scripting
-### AWS EC2
-### Cron Jobs
-### SSH
-
+- Git and Gitbash, Bash Scripting, AWS EC2, Cron Jobs, SSH
 
 ## Additional Tips
 

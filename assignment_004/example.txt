@@ -1,0 +1,4 @@
+This is a simple text file.
+It contains some lines of text for practice.
+Feel free to manipulate and explore its content.
+Enjoy the learning process
