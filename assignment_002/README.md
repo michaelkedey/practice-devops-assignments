@@ -1,3 +1,6 @@
+### Multiple choice
+
+
 1. What does the df command do in Linux?
    - a) Displays system information
    - b) Displays running processes
