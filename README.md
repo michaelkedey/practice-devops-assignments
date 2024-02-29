@@ -8,7 +8,7 @@ Welcome to the DevOps Hands-On Projects repository! This repo is designed to giv
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/michaelkedey/Jomacs-assignments_peer_review.git
+git clone https://github.com/michaelkedey/practice-devops-assignments.git
 cd practice-devops-assignments
 ```
 
