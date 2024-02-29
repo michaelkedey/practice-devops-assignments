@@ -18,7 +18,7 @@ Explore the assignments by navigating into each project folder. Each folder cont
 
 ## Contribution Guidelines
 
-If you have ideas for new beginner-friendly projects or improvements, we encourage you to contribute! Please follow the [Contribution Guidelines](CONTRIBUTING.md).
+If you have any corrections, or ideas for new beginner-friendly projects or improvements, we encourage you to contribute! Please follow the [Contribution Guidelines](CONTRIBUTING.md).
 
 ## Happy Learning!
 

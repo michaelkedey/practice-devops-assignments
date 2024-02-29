@@ -1,4 +1,4 @@
-###The goal of this assignment is to get familiar with the Linux terminal by manipulating files using some common commands.
+### The goal of this assignment is to get familiar with the Linux terminal by manipulating files using some common commands.
 
 
 1. Cd to your desktop directory
