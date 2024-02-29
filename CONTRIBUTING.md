@@ -12,8 +12,8 @@ If you are new to contributing to open source projects, here are some steps to g
 2. **Clone Your Fork:**
    - Clone your fork to your local machine.
      ```bash
-     https://github.com/michaelkedey/Jomacs-assignments_peer_review.git
-     cd devops-hands-on-projects
+     https://github.com/michaelkedey/practice-devops-assignments.git
+     cd practice-devops-assignments
      ```
 
 3. **Create a Branch:**
