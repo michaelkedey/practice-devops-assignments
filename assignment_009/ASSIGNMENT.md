@@ -235,7 +235,7 @@ e.g.
 
 ```
 -comment these 2 lines
-**<Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />**
+**```<Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />```**
 
 14. **Create a new Tomcat user and add roles to enable accessing the manager app**
     e.g. 
