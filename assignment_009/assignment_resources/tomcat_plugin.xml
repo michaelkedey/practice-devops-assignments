@@ -1,0 +1,13 @@
+<plugins>
+
+    <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version> 
+        <configuration>
+            <url>http://remote-server-ip:8080/manager/text</url> #change to your tomcat remote-server-ip
+            <server>TomcatServer</server>
+        </configuration>
+    </plugin>
+
+</plugins>

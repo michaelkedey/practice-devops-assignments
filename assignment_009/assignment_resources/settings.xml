@@ -1,0 +1,9 @@
+  <settings>
+  <servers>
+    <server>
+        <id>TomcatServer</id> #this id must match that of the <server> under the configuration in pom.xml
+        <username>username</username> # tomcat username you created on the remote tomcat server
+        <password>********</password> # tomcat password
+    </server>
+  </servers>
+  </settings>
