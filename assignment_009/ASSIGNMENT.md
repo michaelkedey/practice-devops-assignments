@@ -229,11 +229,11 @@ sudo chmod 777 -R /opt/tomcat9
     - Visit ```instance-ip-address:8080``` from your browser
 
 13.  **Modify Tomcat configurations to allow access to the manager app from any IP by editing the context.xml file**
-    e.g. 
-    ```
+e.g. 
+```
     sudo vi /opt/tomcat9/webapps/manager/META-INF/context.xml
-    
-    ```
+
+```
 -comment these 2 lines
 **<Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />**
 
