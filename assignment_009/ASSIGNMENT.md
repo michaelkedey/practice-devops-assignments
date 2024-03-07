@@ -7,22 +7,22 @@
 2. **SSH into your instance**
 
 3. **Change the hostname and switch to user ubuntu e.g.** 
-```
-sudo hostnamectl set-hostname cicd
+    ```
+    sudo hostnamectl set-hostname cicd
 
-```
+    ```
 
 4. **Update your system e.g.** 
-```
-sudo apt-get upgrade -y && sudo apt-get update -y
+    ```
+    sudo apt-get upgrade -y && sudo apt-get update -y
 
-```
+    ```
 
 5. **Install the default Java JDK e.g.** 
-```
-sudo apt-get install default-jdk -y
+    ```
+    sudo apt-get install default-jdk -y
 
-```
+    ```
 
 6. **Download Maven and Tomcat zipped files using ```wget```**
    e.g. 
@@ -234,11 +234,12 @@ sudo chmod 777 -R /opt/tomcat9
     sudo vi /opt/tomcat9/webapps/manager/META-INF/context.xml
     
     ```
-    -comment these 2 lines
-```
-<Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />
+-comment these 2 lines
 
-```
+    ```
+    <Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />
+
+    ```
 
 14. **Create a new Tomcat user and add roles to enable accessing the manager app**
     e.g. 
