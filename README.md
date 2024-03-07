@@ -12,6 +12,23 @@ git clone https://github.com/michaelkedey/practice-devops-assignments.git
 cd practice-devops-assignments
 ```
 
+### Staying Updated
+To ensure you are up to date with any changes in the main repository:
+1. Add this repository as a remote upstream repository by running 
+```bash
+git remote add upstream https://github.com/michaelkedey/practice-devops-assignments.git
+```
+
+2. Fetch the updates from the upstream repository by running 
+```bash
+git fetch upstream main.
+```
+3. Merge the updates from the upstream repository into their local repository by running 
+```bash
+git merge upstream/main.
+```
+
+
 ## Assignment Instructions
 
 Explore the assignments by navigating into each project folder. Each folder contains an **ASSIGNMENT.md** file with step-by-step instructions for the assignment.
