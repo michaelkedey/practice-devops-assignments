@@ -1,0 +1,11 @@
+<plugin>
+    <groupId>org.sonarsource.scanner.maven</groupId>
+    <artifactId>sonar-maven-plugin</artifactId>
+    <version>3.8.0.1744</version>
+    <properties>
+        <sonar.projectKey>my-app</sonar.projectKey>
+        <sonar.host.url>http://your-sonarqube-server:9000</sonar.host.url> #change
+        <sonar.login>your-sonarqube-username</sonar.login> #change
+        <sonar.password>your-sonarqube-password</sonar.password> #change
+    </properties>
+</plugin>

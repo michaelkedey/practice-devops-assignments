@@ -8,7 +8,7 @@
 
 3. **Change the hostname and switch to user ubuntu e.g.** 
     ```
-    sudo hostnamectl set-hostname cicd
+sudo hostnamectl set-hostname cicd && sudo su - ubuntu
 
     ```
 
@@ -212,7 +212,7 @@ sudo chmod 777 -R /opt/tomcat9
 
 ```
 
-11. **Enable easy access to starting and stopping Tomcat by creating symbolic links**
+11. **Enable easy access to starting and stopping Tomcat by creating symbolic links in your /usr/bin directory**
     e.g. 
     ```
     sudo ln -s /opt/tomcat9/bin/startup.sh /usr/bin/starttomcat && sudo ln -s /opt/tomcat9/bin/shutdown.sh /usr/bin/stoptomcat
@@ -234,7 +234,7 @@ e.g.
     sudo vi /opt/tomcat9/webapps/manager/META-INF/context.xml
 
 ```
--comment these 2 lines
+- comment these 2 lines
 **```<Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />```**
 
 14. **Create a new Tomcat user and add roles to enable accessing the manager app**

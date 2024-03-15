@@ -1,0 +1,5 @@
+<server>
+    <id>deploymentRepo</id> # change deploymentRepo to nexus
+    <username>repouser</username> # change repouser to admin
+    <password>repopwd</password> # change repopwd to your nexus password
+</server>

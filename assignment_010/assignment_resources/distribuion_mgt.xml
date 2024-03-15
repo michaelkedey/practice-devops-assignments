@@ -1,0 +1,14 @@
+<distributionManagement>
+<repository>
+    <id>nexus</id>
+    <name>nexus release repo name</name> #change
+    <url>http://3.145.28.22:8081/repository/webapp-release/</url> # change the URL to your nexus release repo URL
+    </repository>
+
+    <snapshotRepository>
+    <id>nexus</id>
+    <name>nexxus snapshot repo name </name> #change
+    <url>http://3.83.252.29:8081/repository/practice-snapshot/</url> # change the URL to your nexus snapshot repo URL
+    </snapshotRepository>
+
+</distributionManagement>
