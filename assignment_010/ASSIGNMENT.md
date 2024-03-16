@@ -302,7 +302,6 @@ sudo systemctl status nexus
 
 ### PART V (maven 2)
 1. **Modify the contents of the `pom.xml` file on your maving server and paste in the contents of the [distribution_mgt.xml](assignment_resources/distribuion_mgt.xml) file within the build tags**  
-
 eg.
 ```
 sudo vi pom.xml vi 
@@ -317,7 +316,7 @@ sudo vi /opt/maven/conf/settings.xml
 ```
 - The id of the [settings.xml](assignment_resources/settings.xml) configuration must be tge same as the id in the [distribution_mgt.xml](assignment_resources/distribuion_mgt.xml)cofiguration.
 
-- Change the version from SNAPSHOT to RELEASE, to deploy a relese artifact to nexus
+- Inside your `pom.xml` file, change the version from SNAPSHOT to RELEASE, in order to deploy a relese artifact to nexus, and vice versa.
 
 3. **Package the artificat and deploy to nexus**
 eg.
