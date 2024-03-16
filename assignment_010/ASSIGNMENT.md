@@ -24,7 +24,7 @@ sudo hostnamectl set-hostname sonar
 6. **switch to user ubuntu**
 
 7. **Configure [Elasticsearch](assignment_resources/elastic_search.md)**
-    - **modify the contents of /etc/sysctl.conf by adding the following lines of code:**
+    - **modify the contents of `/etc/sysctl.conf` by adding the following lines of code:**
     eg.
     ```
     sudo vi /etc/sysctl.conf
