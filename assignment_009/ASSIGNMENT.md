@@ -140,7 +140,9 @@ sudo vi /opt/tomcat9/webapps/manager/META-INF/context.xml
 -comment these 2 lines
 
 ```
-<Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />
+- <Valve className="org.apache.catalina.valves.RemoteAddrValve" 
+
+- allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />
 
 ```
 
