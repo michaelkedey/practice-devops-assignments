@@ -9,7 +9,7 @@
 
 **Running `sudo apt install postgresql`  is a quick and convenient way to install PostgreSQL from the default Ubuntu repository. While this is a straightforward way to install PostgreSQL, it may not always provide the latest version of PostgreSQL or the most up-to-date features and bug fixes.**
 
-    - **Here's why using the official PostgreSQL repository and adding the GPG key is preferred in many cases:**
+- **Here's why using the official PostgreSQL repository and adding the GPG key is preferred in many cases:**
 
 1. **Latest Version: The official PostgreSQL repository often provides the latest stable version of PostgreSQL If you need specific features or bug fixes that are only available in newer versions, installing from the official repository ensures you have access to them.**
 
@@ -29,7 +29,7 @@
 **In general, when you have multiple repositories configured on your system, apt will choose the repository with the highest priority that contains the package you're trying to install. You can adjust the priorities of repositories by modifying their configuration files in the `/etc/apt/sources.list` directory and the `/etc/apt/sources.list.d/` directory.**
 
 
-#### The installation of PostgreSQL before installing SonarQube is often required because SonarQube relies on a database to store its data, and PostgreSQL is one of the supported databases for SonarQube.
+### The installation of PostgreSQL before installing SonarQube is often required because SonarQube relies on a database to store its data, and PostgreSQL is one of the supported databases for SonarQube.
 
 
 ## Command breakdown (Why you can't just sudo 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list' `without using sh -c`)
