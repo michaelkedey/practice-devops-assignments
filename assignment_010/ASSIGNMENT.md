@@ -38,15 +38,10 @@ sudo hostnamectl set-hostname sonar
 
     - **save and exit**
 
-8. **Apply the configuration by either reboting your system or using the sysctl -p command.**
+8. **Apply the configuration by reboting your system.**
 eg.
 ```
 sudo reboot
-
-```
-**OR**
-```
-sudo sysctl -p 
 
 ```
 
@@ -66,19 +61,19 @@ eg.
 
 ```
 
-11. **Enable ans start the postgres service**
+11. **Enable and start the postgres service**
 eg.
 ```
-sudo systemctl start postgresql && sudo systemctl enable postgresql
+sudo systemctl enable postgresql && sudo systemctl start postgresql
 
 ```
 
-12. **By default, a new postgres user is created when you install postgres. Change the postrgess user**
+12. **By default, a new postgres user called postgres is created when you install postgres. Change the postrgess user password**
 
-13. **Create a new user named sonar as user postgres, and create a password for the new user**
+13. **Create a new user named sonar as user postgres using the psql shell, and create a password for the new user**
 eg.
 ```
-sudo -u postgres createuser sonar WITH ENCRYPTED PASSWORD 'your_password'
+sudo -u postgres psql -c "CREATE ROLE sonar WITH LOGIN ENCRYPTED PASSWORD 'your password';"
 
 ```
 - you can also switch to the user postgres, switch to the  psql shell, create the sonar user and do further configurations in the psql shell.
@@ -88,7 +83,7 @@ eg.
 ```
 sudo -u postgres psql
 
-CREATE DATABE 'sonarqube' OWNER sonar;
+CREATE DATABE sonarqube OWNER sonar;
 
 GRANT ALL PRIVILEGES ON DATABASE sonarqube to sonar;
 
@@ -106,6 +101,8 @@ eg.
 1. **Install java**
 eg.
 ```
+cd /opt/
+
 sudo apt-get install openjdk-17-jdk zip -y
 
 java -version
@@ -115,7 +112,7 @@ java -version
 2. **Dowanload sonarqube, rename the downloaded directory and clean up the redundant zipped package**
 eg.
 ```
-sudo wget -P /opt/ https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.9.4.87374.zip && sudo unzip sonarqube-9.9.4.87374.zip && sudo rm -rf sonarqube-9.9.4.87374.zip && sudo mv sonarqube-9.9.4.87374/ sonarqube
+sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.9.4.87374.zip && sudo unzip sonarqube-9.9.4.87374.zip && sudo rm -rf sonarqube-9.9.4.87374.zip && sudo mv sonarqube-9.9.4.87374/ sonarqube
 
 ```
 
@@ -134,13 +131,14 @@ sudo chown -R sonar:sonar /opt/sonarqube
 
 ```
 
-5. **In order for sonarqube to connect to the psql database, modify the sonarqube configuration file `/opt/sonarqube/conf/sonar.properties` and set the database username and password to those configured earlier on the sonarqube database in postggresql**
+5. **In order for sonarqube to connect to the psql database, modify the sonarqube configuration file `/opt/sonarqube/conf/sonar.properties` and set the database, username and password to those configured earlier on the sonarqube database in postggresql**
 eg.
 ```
 sudo vi /opt/sonarqube/conf/sonar.properties
 
 sonar.jdbc.username=username
 sonar.jdbc.password=pasword
+sonar.jdbc.url=jdbc:postgresql://localhost:5432/sonarqube
 
 ```
 
@@ -152,12 +150,13 @@ eg.
 sudo vi /etc/systemd/system/sonar.service
 
 ```
-    - **Add the following [sonerqube configuration](assignment_resources/sonerqube_service.md)**
+- **Add the following [sonerqube configuration](assignment_resources/sonerqube_service.md)**
 
 8. **Reload systemd configuration files and units**
 eg.
 ```
-sudo systemctl deamon-reload
+sudo systemctl daemon-reload
+
 
 ```
 
@@ -174,15 +173,16 @@ sudo systemctl status sonar
 - Default username and password is admin
 - Change the password to any of your choice, after your first login
 - The default testing rule for SonarQube is [Sonar Way](assignment_resources/sonar_way.md)
-- Be sure to allow traffic on port 9090 in your security group rules, on the aws console
+- Be sure to allow traffic on port 9000 in your security group rules, on the aws console
 
 
 ## PART III (maven)
 1. **For this part, you can either use the [jomacs web-app repo](https://github.com/JOMACS-IT/web-app.git), or your own maven [web app](../assignment_009/ASSIGNMENT.md) you built in assignment_009 (you can chhpse to exclude the tomcat configuration this time around)**
 
-2. **Modify the contents of your `pom.xml` file in the root directory of the web-app and paste in the contents of the [properties.xml](assignment_resources/properties.xml) file**
+2. **If you use the [jomacs web-app repo](https://github.com/JOMACS-IT/web-app.git), modify the `pom.xml` file in the root directory of the web-app and paste in the contents of the [properties.xml](assignment_resources/properties.xml) file**
 
-3. **If the properties tag doesn't exist, create it inside the project tag**
+3. **If you use your own maven [web app](../assignment_009/ASSIGNMENT.md), modify the `pom.xml` file in the root directory of the web-app and paste in the contents of the [sonarqube plugin](assignment_resources/sonarqube_plugin.xml) file**
+- create a test directory inside your src directory of the web-app, if you;re using your own maven [web app](../assignment_009/ASSIGNMENT.md)
 
 4. **Clean and package your code into a deployable artifact and scan with sonerqube**
 eg.
@@ -289,31 +289,34 @@ sudo systemctl status nexus
 
 16. **Access nexus web portal via the severs public ip address on port 8081**
 - Be sure to allow traffic on port 8081 in your security group rules, on the aws console
+- your login credentials are in the `/opt/sonatype-work/nexus3/admin.password` file
 - Create repository
 - maven2(hosted)
 - name # enter a prefered name
 - version policy # release or snapshot
 - deployment policy # allow redeploy
-- create repository
-- Create a snapshot
+- create a release repository
+- Create a snapshot repository
 
 
 ### PART V (maven 2)
-1. **Modify the contents of the `pom.xml` file on your maving server and paste in the contents of the[distribution_mgt.xml](assignment_resources/distribuion_mgt.xml) file within the build tags**  
+1. **Modify the contents of the `pom.xml` file on your maving server and paste in the contents of the [distribution_mgt.xml](assignment_resources/distribuion_mgt.xml) file within the build tags**  
 
-- add the contents of the [sonerqube plugin](assignment_resources/sonarqube_plugin.xml), if it doesn't exist already.
 eg.
 ```
 sudo vi pom.xml vi 
 
 ```
 
-2. **Modify the contents of the `settings.xml` file on your maven server and paste in the contents of the [settings.xml](assignment_resources/settings.xml) file**
+2. **Modify the contents of the `settings.xml` file on your maven server and paste in the contents of the [settings.xml](assignment_resources/settings.xml) file inside ther servers tag**
 eg.
 ```
 sudo vi /opt/maven/conf/settings.xml
 
 ```
+- The id of the [settings.xml](assignment_resources/settings.xml) configuration must be tge same as the id in the [distribution_mgt.xml](assignment_resources/distribuion_mgt.xml)cofiguration.
+
+- Change the version from SNAPSHOT to RELEASE, to deploy a relese artifact to nexus
 
 3. **Package the artificat and deploy to nexus**
 eg.

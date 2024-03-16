@@ -1,11 +1,39 @@
-<plugin>
-    <groupId>org.sonarsource.scanner.maven</groupId>
-    <artifactId>sonar-maven-plugin</artifactId>
-    <version>3.8.0.1744</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+    
+    #other configurations
+
+    #add these
+    <repositories>
+        <repository>
+            <id>sonar-releases</id>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
+    </repositories>
+
     <properties>
+        <!-- SonarQube analysis properties -->
+        <sonar.host.url>http://52.90.81.181:9000/</sonar.host.url> #change
         <sonar.projectKey>my-app</sonar.projectKey>
-        <sonar.host.url>http://your-sonarqube-server:9000</sonar.host.url> #change
-        <sonar.login>your-sonarqube-username</sonar.login> #change
-        <sonar.password>your-sonarqube-password</sonar.password> #change
+        <sonar.projectName>My App</sonar.projectName>
+        <sonar.sources>src/main</sonar.sources>
+        <sonar.tests>src/test</sonar.tests>
+        <sonar.login>admin</sonar.login>
+        <sonar.password>admin123</sonar.password> #change
     </properties>
-</plugin>
+
+
+    <build>
+        <finalName>my-app</finalName>
+
+        #add this 
+        <plugins>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.8.0.1744</version>
+            </plugin>
+        </plugins>
+    </build>
