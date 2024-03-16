@@ -81,7 +81,7 @@ eg.
 sudo -u postgres createuser sonar WITH ENCRYPTED PASSWORD 'your_password'
 
 ```
-    - you can also switch to the user postgres, switch to the  psql shell, create the sonar user and do further configurations in the psql shell.
+- you can also switch to the user postgres, switch to the  psql shell, create the sonar user and do further configurations in the psql shell.
 
 14. **Switch to the postgres shell and create a new database called sonarqube and grant all privileges to the user sonar, also specify the user sonar as the owner of the database**
 eg.
@@ -171,10 +171,10 @@ sudo systemctl status sonar
 ```
 
 10. **Access sonerqube by via the srevers public ipaddress on port 9090**
-    - Default username and password is admin
-    - Change the password to any of your choice, after your first login
-    - The default testing rule for SonarQube is [Sonar Way](assignment_resources/sonar_way.md)
-    - Be sure to allow traffic on port 9090 in your security group rules, on the aws console
+- Default username and password is admin
+- Change the password to any of your choice, after your first login
+- The default testing rule for SonarQube is [Sonar Way](assignment_resources/sonar_way.md)
+- Be sure to allow traffic on port 9090 in your security group rules, on the aws console
 
 
 ## PART III (maven)
@@ -289,14 +289,14 @@ sudo systemctl status nexus
 ```
 
 10. **Access nexus web portal via the severs public ip address on port 8081**
-    - Be sure to allow traffic on port 8081 in your security group rules, on the aws console
-    - Create repository
-    - maven2(hosted)
-    - name # enter a prefered name
-    - version policy # release or snapshot
-    - deployment policy # allow redeploy
-    - create repository
-    - Create a snapshot
+- Be sure to allow traffic on port 8081 in your security group rules, on the aws console
+- Create repository
+- maven2(hosted)
+- name # enter a prefered name
+- version policy # release or snapshot
+- deployment policy # allow redeploy
+- create repository
+- Create a snapshot
 
 
 ### PART V (maven 2)

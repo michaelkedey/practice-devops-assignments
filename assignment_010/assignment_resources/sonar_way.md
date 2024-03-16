@@ -10,37 +10,37 @@
 
 5. **Scanning Your Code:**
 
-    - Log in to the SonarQube web portal.
-    - Navigate to the project you want to analyze.
-    - Click on "Manual Steps" or "Analyze" to start the analysis process.
-    - Follow the instructions to generate an analysis report using either the SonarScanner CLI or by uploading an - - analysis report manually.
+- Log in to the SonarQube web portal.
+- Navigate to the project you want to analyze.
+- Click on "Manual Steps" or "Analyze" to start the analysis process.
+- Follow the instructions to generate an analysis report using either the SonarScanner CLI or by uploading an - - analysis report manually.
 
 6. **Viewing Analysis Results:**
 
-    - Once the analysis is complete, navigate back to your project.
-    - You'll see an overview of the analysis results, including metrics like bugs, vulnerabilities, code smells, and code coverage.
-    - Click on specific issues to view more details and understand why they were flagged.
+- Once the analysis is complete, navigate back to your project.
+- You'll see an overview of the analysis results, including metrics like bugs, vulnerabilities, code smells, and code coverage.
+- Click on specific issues to view more details and understand why they were flagged.
 
 7. **Setting up Quality Profiles:**
 
-    - Navigate to "Quality Profiles" in the SonarQube web portal.
-    - Create a new profile or modify an existing one to customize the ruleset according to your project's requirements.
-    - Enable or disable rules based on your preferences and project needs.
+- Navigate to "Quality Profiles" in the SonarQube web portal.
+- Create a new profile or modify an existing one to customize the ruleset according to your project's requirements.
+- Enable or disable rules based on your preferences and project needs.
 
 8. **Using Quality Gates:**
 
-    - Quality Gates in SonarQube allow you to set thresholds for various quality metrics.
-    - Navigate to "Quality Gates" in the SonarQube web portal.
-    - Define the conditions that need to be met for a build to pass the quality gate.
-    - This ensures that only code meeting your quality standards is allowed into production.
+- Quality Gates in SonarQube allow you to set thresholds for various quality metrics.
+- Navigate to "Quality Gates" in the SonarQube web portal.
+- Define the conditions that need to be met for a build to pass the quality gate.
+- This ensures that only code meeting your quality standards is allowed into production.
 
 9. **Other Actions:**
 
-    - SonarQube offers various other features accessible from the web portal, including:
-    - Integrating with Continuous Integration (CI) tools like Jenkins for automatic analysis.
-    - Assigning issues to developers for resolution directly from the web portal.
-    - Tracking code churn and technical debt over time to prioritize improvements.
-    - Integrating with external issue trackers for seamless workflow management.
-    - Continuous Improvement:
-        - Regularly monitor analysis results and address any issues flagged by SonarQube.
-        - Use the insights provided by SonarQube to improve code quality over time.
+- SonarQube offers various other features accessible from the web portal, including:
+- Integrating with Continuous Integration (CI) tools like Jenkins for automatic analysis.
+- Assigning issues to developers for resolution directly from the web portal.
+- Tracking code churn and technical debt over time to prioritize improvements.
+- Integrating with external issue trackers for seamless workflow management.
+- Continuous Improvement:
+    - Regularly monitor analysis results and address any issues flagged by SonarQube.
+    - Use the insights provided by SonarQube to improve code quality over time.
