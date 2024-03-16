@@ -182,7 +182,8 @@ sudo systemctl status sonar
 2. **If you use the [jomacs web-app repo](https://github.com/JOMACS-IT/web-app.git), modify the `pom.xml` file in the root directory of the web-app and paste in the contents of the [properties.xml](assignment_resources/properties.xml) file**
 
 3. **If you use your own maven [web app](../assignment_009/ASSIGNMENT.md), modify the `pom.xml` file in the root directory of the web-app and paste in the contents of the [sonarqube plugin](assignment_resources/sonarqube_plugin.xml) file**
-- create a test directory inside your src directory of the web-app, if you;re using your own maven [web app](../assignment_009/ASSIGNMENT.md)
+- create a test directory inside your src directory of your web-app
+- You can leave out the tomcat configurtions, and also the `index.jsp` file modification
 
 4. **Clean and package your code into a deployable artifact and scan with sonerqube**
 eg.
