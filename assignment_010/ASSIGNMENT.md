@@ -191,8 +191,7 @@ mvn sonar:sonar
 
 ```
 
-
-5. Go to the sonerqube web portal and notice your project directory.
+5. **Go to the sonerqube web portal and notice your project directory.**
 
 
 ### PART IV (nexus)
@@ -261,7 +260,7 @@ eg.
 sudo vi /opt/nexus/bin/nexus.rc
 
 ```
-    - uncomment this line `run_as_user="nexus"` and add the nexus user
+- uncomment this line `run_as_user="nexus"` and add the nexus user
 
 13. **Configures a Systemd service for the Nexus application by creating a new service file named `nexus.service` in the `/etc/systemd/system/`**
 eg.
@@ -269,17 +268,17 @@ eg.
 sudo vi /etc/systemd/system/nexus.service
 
 ```
-    - **Add the following [nexus configuration](assignment_resources/nexus_service.md)**
+- **Add the following [nexus configuration](assignment_resources/nexus_service.md)**
     
     
-8. **Reload systemd configuration files and units**
+14. **Reload systemd configuration files and units**
 eg.
 ```
 sudo systemctl deamon-reload
 
 ```
 
-9. **Now you can perform systemctl ommand such as , start, stop, status, etc on the sonarqube service you created.**
+15. **Now you can perform systemctl ommand such as , start, stop, status, etc on the sonarqube service you created.**
 eg.
 ```
 sudo systemctl enable nexus
@@ -288,7 +287,7 @@ sudo systemctl status nexus
 
 ```
 
-10. **Access nexus web portal via the severs public ip address on port 8081**
+16. **Access nexus web portal via the severs public ip address on port 8081**
 - Be sure to allow traffic on port 8081 in your security group rules, on the aws console
 - Create repository
 - maven2(hosted)
