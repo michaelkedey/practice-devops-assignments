@@ -164,7 +164,7 @@ sudo vi /opt/tomcat9/conf/tomcat-users.xml
 
 ## PART II
 
-1. Launch another Ubuntu Ec2 instance with ssh access
+1. Launch another Ubuntu EC2 instance with ssh access
 
 2. SSH into your instance
 
