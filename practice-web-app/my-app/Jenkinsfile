@@ -38,7 +38,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'tomcat', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    withCredentials([usernamePassword(credentialsId: 'Tomcat', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         // Use USERNAME and PASSWORD variables securely
                         // For example, you can use them in shell commands or Maven invocations
                         sh "deploy-script.sh --username ${USERNAME} --password ${PASSWORD}"
