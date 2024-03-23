@@ -1,9 +1,8 @@
 pipeline {
     agent any
-       tools {
+    tools {
         maven 'Maven'
     }
-    
     stages {
         stage('Checkout') {
             steps {
@@ -19,7 +18,12 @@ pipeline {
                 dir('practice-web-app/my-app/src') {
                     // Perform build steps
                     sh "echo  building app"
-                    sh 'mvn clean package'
+                    withMaven(
+                        maven: 'Maven',
+                        mavenSettingsConfig: 'your-maven-settings'
+                    ) {
+                        sh 'mvn clean package'
+                    }
                 }
             }
         }
@@ -30,7 +34,12 @@ pipeline {
                 dir('practice-web-app/my-app/src') {
                     // Perform test steps
                     sh "echo  running tests"
-                    sh 'mvn test'
+                    withMaven(
+                        maven: 'Maven',
+                        mavenSettingsConfig: 'your-maven-settings'
+                    ) {
+                        sh 'mvn test'
+                    }
                 }
             }
         }
@@ -42,17 +51,21 @@ pipeline {
                     // Perform deployment steps
                     // For example, deploy to Tomcat
                     sh "echo  Deploying to Tomcat"
-                    sh 'mvn tomcat7:redeploy'
+                    withMaven(
+                        maven: 'Maven',
+                        mavenSettingsConfig: 'your-maven-settings'
+                    ) {
+                        sh 'mvn tomcat7:redeploy'
+                    }
                 }
             }
         }
 
-        stage("6. Email Notification"){
-            steps{
-                sh "echo Email Notification to DevOps Team"
+        stage("Email Notification"){
+            steps {
+                echo "Email Notification to DevOps Team"
                 emailext body: 'The Deployment is Successful', subject: 'Deployment Success', to: 'privatemyk@gmail.com'
-        }  
-      }
+            }  
+        }
     }
 }
-
