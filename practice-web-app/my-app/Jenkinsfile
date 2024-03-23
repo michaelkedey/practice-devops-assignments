@@ -54,7 +54,7 @@ pipeline {
             }
         }
 
-        stage("6. Email Notification"){
+        stage("Email Notification"){
             steps{
                 sh "echo Email Notification to DevOps Team"
                 emailext body: 'The Deployment is Successful', subject: 'Deployment Success', to: 'privatemyk@gmail.com'
