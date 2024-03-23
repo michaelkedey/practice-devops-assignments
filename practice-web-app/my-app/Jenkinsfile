@@ -1,8 +1,9 @@
 pipeline {
     agent any
-    tools {
-        maven 'maven3.9.6'
+       tools {
+        maven 'Maven'
     }
+    
     stages {
         stage('Checkout') {
             steps {
@@ -18,12 +19,7 @@ pipeline {
                 dir('practice-web-app/my-app/src') {
                     // Perform build steps
                     sh "echo  building app"
-                    withMaven(
-                        maven: 'maven3.9.6',
-                        mavenSettingsConfig: 'your-maven-settings'
-                    ) {
-                        sh 'mvn clean package'
-                    }
+                    sh 'mvn clean package'
                 }
             }
         }
@@ -34,12 +30,7 @@ pipeline {
                 dir('practice-web-app/my-app/src') {
                     // Perform test steps
                     sh "echo  running tests"
-                    withMaven(
-                        maven: 'maven3.9.6',
-                        mavenSettingsConfig: 'your-maven-settings'
-                    ) {
-                        sh 'mvn test'
-                    }
+                    sh 'mvn test'
                 }
             }
         }
@@ -51,21 +42,17 @@ pipeline {
                     // Perform deployment steps
                     // For example, deploy to Tomcat
                     sh "echo  Deploying to Tomcat"
-                    withMaven(
-                        maven: 'maven3.9.6',
-                        mavenSettingsConfig: 'your-maven-settings'
-                    ) {
-                        sh 'mvn tomcat7:redeploy'
-                    }
+                    sh 'mvn tomcat7:redeploy'
                 }
             }
         }
 
-        stage("Email Notification"){
-            steps {
-                echo "Email Notification to DevOps Team"
+        stage("6. Email Notification"){
+            steps{
+                sh "echo Email Notification to DevOps Team"
                 emailext body: 'The Deployment is Successful', subject: 'Deployment Success', to: 'privatemyk@gmail.com'
-            }  
-        }
+        }  
+      }
     }
 }
+
