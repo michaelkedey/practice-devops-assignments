@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven'
+        maven 'maven3.9.6'
     }
     stages {
         stage('Checkout') {
@@ -19,7 +19,7 @@ pipeline {
                     // Perform build steps
                     sh "echo  building app"
                     withMaven(
-                        maven: 'Maven',
+                        maven: 'maven3.9.6',
                         mavenSettingsConfig: 'your-maven-settings'
                     ) {
                         sh 'mvn clean package'
@@ -35,7 +35,7 @@ pipeline {
                     // Perform test steps
                     sh "echo  running tests"
                     withMaven(
-                        maven: 'Maven',
+                        maven: 'maven3.9.6',
                         mavenSettingsConfig: 'your-maven-settings'
                     ) {
                         sh 'mvn test'
@@ -52,7 +52,7 @@ pipeline {
                     // For example, deploy to Tomcat
                     sh "echo  Deploying to Tomcat"
                     withMaven(
-                        maven: 'Maven',
+                        maven: 'maven3.9.6',
                         mavenSettingsConfig: 'your-maven-settings'
                     ) {
                         sh 'mvn tomcat7:redeploy'
