@@ -1,0 +1,55 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the repository
+                sh "echo git cloning repo"
+                git branch: 'main', url: 'https://github.com/michaelkedey/practice-devops-assignments.git'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                // Change directory to the desired directory within the repository
+                dir('practice-web-app/my-app/src') {
+                    // Perform build steps
+                    sh "echo  building app"
+                    sh 'mvn clean package'
+                }
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                // Change directory to the desired directory within the repository
+                dir('practice-web-app/my-app/src') {
+                    // Perform test steps
+                    sh "echo  running tests"
+                    sh 'mvn test'
+                }
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                // Change directory to the desired directory within the repository
+                dir('practice-web-app/my-app/src') {
+                    // Perform deployment steps
+                    // For example, deploy to Tomcat
+                    sh "echo  Deploying to Tomcat"
+                    sh 'mvn tomcat7:redeploy'
+                }
+            }
+        }
+
+        stage("6. Email Notification"){
+            steps{
+                sh "echo Email Notification to DevOps Team"
+                emailext body: 'The Deployment is Successful', subject: 'Deployment Success', to: 'privatemyk@gmail.com'
+        }  
+      }
+    }
+}
+
