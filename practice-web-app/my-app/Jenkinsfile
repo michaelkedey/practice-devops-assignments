@@ -16,7 +16,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Change directory to the desired directory within the repository
-                dir('practice-web-app/my-app/src') {
+                dir('practice-web-app/my-app') {
                     // Perform build steps
                     sh "echo  building app"
                     sh 'mvn clean package'
@@ -27,7 +27,7 @@ pipeline {
         stage('Test') {
             steps {
                 // Change directory to the desired directory within the repository
-                dir('practice-web-app/my-app/src') {
+                dir('practice-web-app/my-app') {
                     // Perform test steps
                     sh "echo  running tests"
                     sh 'mvn test'
@@ -38,7 +38,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Change directory to the desired directory within the repository
-                dir('practice-web-app/my-app/src') {
+                dir('practice-web-app/my-app') {
                     // Perform deployment steps
                     // For example, deploy to Tomcat
                     sh "echo  Deploying to Tomcat"
