@@ -4,8 +4,8 @@ Welcome to the DevOps Hands-On Projects repository! This repo is designed to giv
 
 ## Getting Started
 
-### Fork the Repository
-### Clone the Repository
+### [Click to Fork this Repository](https://github.com/michaelkedey/practice-devops-assignments/fork)
+### [Clone this Repository](https://github.com/michaelkedey/practice-devops-assignments.git)
 
 ```bash
 git clone https://github.com/michaelkedey/practice-devops-assignments.git
