@@ -31,11 +31,11 @@ git merge upstream/main.
 
 ## Assignment Instructions
 
-Explore the assignments by navigating into each project folder. Each folder contains an **ASSIGNMENT.md** file with step-by-step instructions for the assignment.
+**Explore the assignments by navigating into each project folder. Each folder contains an `ASSIGNMENT.md` file with step-by-step instructions for the assignment.**
 
 ## Contribution Guidelines
 
-If you have any corrections, or ideas for new beginner-friendly projects or improvements, we encourage you to contribute! Please follow the [Contribution Guidelines](CONTRIBUTING.md).
+**If you have any corrections, or ideas for new beginner-friendly projects or improvements, we encourage you to contribute! Please follow the [Contribution Guidelines](CONTRIBUTING.md).**
 
 ## Happy Learning!
 
@@ -57,9 +57,9 @@ Happy coding! 🚀
 Happy learning and coding! 🚀
 
 ## Contributors
-- [Doreen Dela Agbedoe](https://github.com/DelaDoreen)
-- [Konadu Owusu-Ansah](https://github.com/konaydu)
-- [Maurice Makafui](https://github.com/Maurice-Makafui)
-- [Kwasi Attafua](https://github.com/Kattafuah)
-- [Seyram Gabriel](https://github.com/seyramgabriel)
-- [Michael Kedey](https://github.com/michaelkedey)
+- **[Doreen Dela Agbedoe](https://github.com/DelaDoreen)**
+- **[Konadu Owusu-Ansah](https://github.com/konaydu)**
+- **[Maurice Makafui](https://github.com/Maurice-Makafui)**
+- **[Kwasi Attafua](https://github.com/Kattafuah)**
+- **[Seyram Gabriel](https://github.com/seyramgabriel)**
+- **[Michael Kedey](https://github.com/michaelkedey)**
