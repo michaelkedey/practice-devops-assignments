@@ -1,0 +1,5 @@
+  <server>
+      <id>nexus</id>
+      <username>admin</username> # nexus username
+      <password>*****</password> # nexus password
+  </server>

@@ -1,0 +1,13 @@
+stage("stage: 4 sonarqube scan"){
+    environment{ 
+        ScannerHome = tool "sonarqube" 
+    }
+    steps{
+        script{
+            withSonarQubeEnv("sonarqube") //must match the soanrqube name configured in jenkins tools
+            {
+                sh "${ScannerHome}/bin/sonar-scanner -Dsonar.projectKey=web-app" //projectkey is the name you'll to the project when deployed to sonarqube
+            }
+        }
+    }
+}
