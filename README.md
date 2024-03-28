@@ -46,7 +46,7 @@ Happy coding! 🚀
 
 ## Building Skills
 
-- Git and Gitbash, Bash Scripting, AWS EC2, Cron Jobs, SSH
+- **Shell Scripting, AWS, Ec2, Git and github, CICD Pipeline, Jenkins (CI/CD tool), SonarQube (Code analysis tool), Tomcat (Application server), Maven (Build automation tool), Nexus (Repository manager), Git (Version control system), Github (Web-based version control repository and hosting service), Java (Programming language), Maven (Build automation tool for Java projects), Shell scripting (For automating tasks on the servers), Fontconfig, SSH, EC2, Ubuntu**
 
 ## Additional Tips
 
