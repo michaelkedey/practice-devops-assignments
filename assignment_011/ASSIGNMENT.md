@@ -1,7 +1,7 @@
 ## CICD PIPELINE WITH JENKINS, SONARQUBE, TOMCAT, MAVEN AND NEXUS
 
 ### PART I (Servers)
-1. **Provission 3 servers for the 4 services**
+1. **Provission 4 servers for the 5 applications**
 - **[SonarQube Server](../assignment_010/ASSIGNMENT.md)**
 - **[Nexus Server](../assignment_010/ASSIGNMENT.md)**
 - **[Tomcat Server](../assignment_010/ASSIGNMENT.md)**
