@@ -5,7 +5,7 @@
 - **[SonarQube Server](../assignment_010/ASSIGNMENT.md)**
 - **[Nexus Server](../assignment_010/ASSIGNMENT.md)**
 - **[Tomcat Server](../assignment_010/ASSIGNMENT.md)**
-- **[Maven Server](../assignment_010/ASSIGNMENT.md)**
+- **[Maven Server](../assignment_010/ASSIGNMENT.md) (optional)**
 - **JENKINS SERVER**
     - **t2.medium ec2 instance**
     - **ssh access**
