@@ -13,17 +13,17 @@ cd practice-devops-assignments
 ```
 
 ### Staying Updated
-To ensure you are up to date with any changes in the main repository:
-1. Add this repository as a remote upstream repository by running 
+**To ensure you are up to date with any changes in the main repository:**
+1. **Add this repository as a remote upstream repository** 
 ```bash
 git remote add upstream https://github.com/michaelkedey/practice-devops-assignments.git
 ```
 
-2. Fetch the updates from the upstream repository by running 
+2. **Fetch the updates from the upstream repository** 
 ```bash
 git fetch upstream main.
 ```
-3. Merge the updates from the upstream repository into their local repository by running 
+3. **Merge the updates from the upstream repository into their local repository** 
 ```bash
 git merge upstream/main.
 ```
@@ -39,9 +39,9 @@ git merge upstream/main.
 
 ## Happy Learning!
 
-These assignments are designed to be beginner-friendly, providing you with practical experience in fundamental DevOps concepts. Feel free to reach out if you have any questions or need assistance.
+**These assignments are designed to be beginner-friendly, providing you with practical experience in fundamental DevOps concepts. Feel free to reach out if you have any questions or need assistance.**
 
-Happy coding! 🚀
+### Happy coding! 🚀
 
 
 ## Building Skills
@@ -54,7 +54,7 @@ Happy coding! 🚀
   - Explore documentation for the tools and services you are working with.
   - Understanding documentation is a key skill for a DevOps practitioner.
 
-Happy learning and coding! 🚀
+### Happy learning and coding! 🚀
 
 ## Contributors
 - **[Doreen Dela Agbedoe](https://github.com/DelaDoreen)**
