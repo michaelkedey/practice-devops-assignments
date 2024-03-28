@@ -2,23 +2,23 @@
 
 ### PART I (Servers)
 1. **Provission 3 servers for the 4 services**
-- ****[SonarQube Server]**(../assignment_010/ASSIGNMENT.md)
-- ****[Nexus Server]**(../assignment_010/ASSIGNMENT.md)
-- ****[Tomcat Server]**(../assignment_010/ASSIGNMENT.md) (optional)
-- ****JENKINS**
-    - ****t2.medium ec2 instance**
-    - ****ssh access**
-    - ****ssh into your jenkins server and change the hostname to jenkins**
-    - ****switch to user `ubuntu`**
-    - ****update and upgrade  the system**
-    - ****Install [Java17-JRE](assignment_resources/jdk-vs-jre.md) and [fontconfig](assignment_resources/fontconfig.md)**
+- **[SonarQube Server](../assignment_010/ASSIGNMENT.md)**
+- **[Nexus Server](../assignment_010/ASSIGNMENT.md)**
+- **[Tomcat Server](../assignment_010/ASSIGNMENT.md) (optional)**
+- **JENKINS**
+    - **t2.medium ec2 instance**
+    - **ssh access**
+    - **ssh into your jenkins server and change the hostname to jenkins**
+    - **switch to user `ubuntu`**
+    - **update and upgrade  the system**
+    - **Install [Java17-JRE](assignment_resources/jdk-vs-jre.md) and [fontconfig](assignment_resources/fontconfig.md)**
         - **eg.**
         ```
         sudo apt install fontconfig openjdk-17-jre -y
         java -version
         ```
 
-    - ****Install Jenkins**
+    - **Install Jenkins**
         - **download the jenkins gpg key file from ` https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key` and save it in the `/usr/share/keyrings/` directory as `jenkins-keyring.asc`**
 
         - **add the jenkins repository `https://pkg.jenkins.io/debian-stable` to the `apt` configuration and use the gpg key you configured earlier `/usr/share/keyrings/jenkins-keyring.asc` for package verification**
@@ -33,17 +33,17 @@
         sudo apt-get install jenkins
         ```
 
-    - ****Enable and start the jenkins service**
+    - **Enable and start the jenkins service**
     eg.
     ```
     sudo systemctl  enable jenkins
     sudo systemctl start jenkins
     ```
     
-    - ****Access jenkins on the web on port  8080**
-    - ****Follow the instructions to get the initial passwaord and log in**
-    - ****Install suggested plugins,and create the first admin user**
-    - ****Maintain the default instance configuration `http://jenkins-server-ip-address:8080` and start using jenkins**
+    - **Access jenkins on the web on port  8080**
+    - **Follow the instructions to get the initial passwaord and log in**
+    - **Install suggested plugins,and create the first admin user**
+    - **Maintain the default instance configuration `http://jenkins-server-ip-address:8080` and start using jenkins**
 
 
 ### PART II (Git and Github)
@@ -52,11 +52,11 @@
 2. **Fork the [jomacs web-app repo](https://github.com/JOMACS-IT/web-app.git) to your [Github](https://www.github.com) if you haven't already, clone the forked repo from your own github to your local environment.**
 
 3.  **If you're using your own maven [web app](../assignment_009/ASSIGNMENT.md) however, create a repo on your [Github](https://www.github.com), clone the repo to your local environemnt, `cd` into the repo, and build your maven [web app](../assignment_009/ASSIGNMENT.md), and push the code to github**
-    - ****you'll need to have [maven](https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.zip) installed and added to your environment variables**
+    - **you'll need to have [maven](https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.zip) installed and added to your environment variables**
 
-    - ****you'll need to also have [java](https://download.oracle.com/java/22/latest/jdk-22_windows-x64_bin.exe) installed**
+    - **you'll need to also have [java](https://download.oracle.com/java/22/latest/jdk-22_windows-x64_bin.exe) installed**
 
-    - ****you'll need to configure git credentials on your local  machine**
+    - **you'll need to configure git credentials on your local  machine**
 
 
 ### PART III (CICD)
@@ -65,47 +65,47 @@
 2. **Search and install these plugins:**
     - **SonarQube Scanner (for sonarqube)**
     - **Nexus Artifact Uploader (for nexus)**
-    - **Pipeline Utility Steps (for better pipeline building experience) 
-    - **Pipeline Maven Integration (for maven)
-    - **Blue Ocean (for viewing job outputs)
-    - **Deploy to Container (for tomcat)
+    - **Pipeline Utility Steps (for better pipeline building experience)** 
+    - **Pipeline Maven Integration (for maven)**
+    - **Blue Ocean (for viewing job outputs)**
+    - **Deploy to Container (for tomcat)**
 
 3. **Add maven and sonarqube as tools, on the jenkins server**
     - **Navigate back to dashboard --> manage jenkins --> tools**
-    - **Scroll down to maven installations and click on add maven
-        - **name: maven
-        - **version: 3.9.6 (default)
-        - **apply and save
+    - **Scroll down to maven installations and click on add maven**
+        - **name: maven**
+        - **version: 3.9.6 (default)**
+        - **apply and save**
 
-    - **Scroll down to sonarqube scanner installations and click on add sonarqube scanner
-        - **name: sonarqube
-        - **version: 5.0.1 (default)
-        - **apply and save
+    - **Scroll down to sonarqube scanner installations and click on add sonarqube scanner**
+        - **name: sonarqube**
+        - **version: 5.0.1 (default)**
+        - **apply and save**
 
 4. **Generate a sonarqube token to be used on the jenkins server for authenticating sonarqube deployments**
-    - **on your sonarqube server, navigate to account --> security --> generate token
-    - **name: name your token
-    - **token type: global analysis token
-    - **expires in: select an expiration time
-    - **generate and copy.
+    - **on your sonarqube server, navigate to account --> security --> generate token**
+    - **name: name your token**
+    - **token type: global analysis token**
+    - **expires in: select an expiration time**
+    - **generate and copy.**
 
 5. **Add the generated sonarqube token on your jenkins server.**
     - **on your jenkins server, navigate to dashboard --> manage jenkins --> system**
     - **scroll down to sonarqube servers**
-    - **check the environment variables box
-    - **add sonarqube
-        - **name: sonarqube
-        - **server url: your_sonrqube_server_url:8080
-        - **token: add jenkins token
-            - **domain: default
-            - **kind: secret text
-            - **scope: global
-            - **secret: paste the token you generated and copied from the sonarqube server
-            - **id: give it an id (eg: sonarqube-token)
-            - **description: give it a description
-            - **add
-        - **server authentication token: select the token you just created
-        - **apply and save
+    - **check the environment variables box**
+    - **add sonarqube**
+        - **name: sonarqube**
+        - **server url: your_sonrqube_server_url:8080**
+        - **token: add jenkins token**
+            - **domain: default**
+            - **kind: secret text**
+            - **scope: global**
+            - **secret: paste the token you generated and copied from the sonarqube server**
+            - **id: give it an id (eg: sonarqube-token)**
+            - **description: give it a description**
+            - **add**
+        - **server authentication token: select the token you just created**
+        - **apply and save**
 
 6. **Create your first freestyle job on Jenkins by navigating to dashboard --> New Item**
     - **name: give your job a name (eg. first_job)
