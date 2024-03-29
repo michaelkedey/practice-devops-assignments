@@ -1,7 +1,6 @@
 # Implementing SORNAQUBE server installation for code scanning, and nexus server for artifact storage
 
 ### PART I (SonarQube Server)
-- #### (PostgrSQL)
 1. **Provission an ec2 instnace of type t2.medium, or t2.large**
 
 2. **Enable ssh access, and name your instance sonarqube**
