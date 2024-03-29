@@ -174,7 +174,7 @@ sudo systemctl status sonar
 - Be sure to allow traffic on port 9000 in your security group rules, on the aws console
 
 
-### PART II (Nexus Server)
+### PART II - Nexus Server
 1. **Provission an ec2 instnace of type t2.large**
 
 2. **Enable ssh access, and name your instance nexus**
