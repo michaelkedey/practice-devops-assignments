@@ -1,6 +1,7 @@
 # Implementing SORNAQUBE server installation for code scanning, and nexus server for artifact storage
 
-### PART I (PostgrSQL)
+### PART I (SonarQube Server)
+- #### (PostgrSQL)
 1. **Provission an ec2 instnace of type t2.medium, or t2.large**
 
 2. **Enable ssh access, and name your instance sonarqube**
@@ -96,9 +97,7 @@ eg.
 
 ```
 
-
-### PART II (sonarqube)
-1. **Install java**
+16. **Install java**
 eg.
 ```
 cd /opt/
@@ -109,14 +108,14 @@ java -version
 
 ```
 
-2. **Dowanload sonarqube, rename the downloaded directory and clean up the redundant zipped package**
+17. **Dowanload sonarqube, rename the downloaded directory and clean up the redundant zipped package**
 eg.
 ```
 sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.9.4.87374.zip && sudo unzip sonarqube-9.9.4.87374.zip && sudo rm -rf sonarqube-9.9.4.87374.zip && sudo mv sonarqube-9.9.4.87374/ sonarqube
 
 ```
 
-3. **Create a new group named sonar, and a new user also named sonar, add the new user sonar, to the group sonar, and specify the new user's home directory as the sonarqube installtion directory**
+18. **Create a new group named sonar, and a new user also named sonar, add the new user sonar, to the group sonar, and specify the new user's home directory as the sonarqube installtion directory**
 eg.
 ```
 sudo groupadd sonar
@@ -124,14 +123,14 @@ sudo useradd sonar -g sonar -d /opt/sonarqube
 
 ```
 
-4. **Change the ownership of the sonarqube installtion directory, to the new user sonar, you created**
+19. **Change the ownership of the sonarqube installtion directory, to the new user sonar, you created**
 eg.
 ```
 sudo chown -R sonar:sonar /opt/sonarqube
 
 ```
 
-5. **In order for sonarqube to connect to the psql database, modify the sonarqube configuration file `/opt/sonarqube/conf/sonar.properties` and set the database, username and password to those configured earlier on the sonarqube database in postggresql**
+20. **In order for sonarqube to connect to the psql database, modify the sonarqube configuration file `/opt/sonarqube/conf/sonar.properties` and set the database, username and password to those configured earlier on the sonarqube database in postggresql**
 eg.
 ```
 sudo vi /opt/sonarqube/conf/sonar.properties
@@ -142,9 +141,9 @@ sonar.jdbc.url=jdbc:postgresql://localhost:5432/sonarqube
 
 ```
 
-6. **Save and exit**
+21. **Save and exit**
 
-7. **Configure a Systemd service for the SonarQube application by creating a new service file named `sonar.service` in the `/etc/systemd/system/`**
+22. **Configure a Systemd service for the SonarQube application by creating a new service file named `sonar.service` in the `/etc/systemd/system/`**
 eg.
 ```
 sudo vi /etc/systemd/system/sonar.service
@@ -152,7 +151,7 @@ sudo vi /etc/systemd/system/sonar.service
 ```
 - **Add the following [sonerqube configuration](assignment_resources/sonerqube_service.md)**
 
-8. **Reload systemd configuration files and units**
+23. **Reload systemd configuration files and units**
 eg.
 ```
 sudo systemctl daemon-reload
@@ -160,7 +159,7 @@ sudo systemctl daemon-reload
 
 ```
 
-9. **Now you can perform systemctl ommand such as , start, stop, status, etc on the sonarqube service you created.**
+24. **Now you can perform systemctl commands such as , start, stop, status, etc on the sonarqube service you created.**
 eg.
 ```
 sudo systemctl enable sonar
@@ -169,33 +168,14 @@ sudo systemctl status sonar
 
 ```
 
-10. **Access sonerqube by via the srevers public ipaddress on port 9090**
+25. **Access sonerqube by via the srevers public ipaddress on port 9090**
 - Default username and password is admin
 - Change the password to any of your choice, after your first login
 - The default testing rule for SonarQube is [Sonar Way](assignment_resources/sonar_way.md)
 - Be sure to allow traffic on port 9000 in your security group rules, on the aws console
 
 
-## PART III (maven)
-1. **For this part, you can either use the [jomacs web-app repo](https://github.com/JOMACS-IT/web-app.git), or your own maven [web app](../assignment_009/ASSIGNMENT.md) you built in assignment_009 (you can chhpse to exclude the tomcat configuration this time around)**
-
-2. **If you use the [jomacs web-app repo](https://github.com/JOMACS-IT/web-app.git), modify the `pom.xml` file in the root directory of the web-app and paste in the contents of the [properties.xml](assignment_resources/properties.xml) file**
-
-3. **If you use your own maven [web app](../assignment_009/ASSIGNMENT.md), modify the `pom.xml` file in the root directory of the web-app and paste in the contents of the [sonarqube plugin](assignment_resources/sonarqube_plugin.xml) file**
-- create a test directory inside your src directory of your web-app
-- You can leave out the tomcat configurtions, and also the `index.jsp` file modification
-
-4. **Clean and package your code into a deployable artifact and scan with sonerqube**
-eg.
-```
-mvn sonar:sonar
-
-```
-
-5. **Go to the sonerqube web portal and notice your project directory.**
-
-
-### PART IV (nexus)
+### PART II (Nexus Server)
 1. **Provission an ec2 instnace of type t2.large**
 
 2. **Enable ssh access, and name your instance nexus**
@@ -299,8 +279,26 @@ sudo systemctl status nexus
 - create a release repository
 - Create a snapshot repository
 
+## PART III (Maven Application)
+1. **For this part, you can either use the [jomacs web-app repo](https://github.com/JOMACS-IT/web-app.git), or your own maven [web app](../assignment_009/ASSIGNMENT.md) you built in assignment_009 (you can chhpse to exclude the tomcat configuration this time around)**
 
-### PART V (maven 2)
+2. **If you use the [jomacs web-app repo](https://github.com/JOMACS-IT/web-app.git), modify the `pom.xml` file in the root directory of the web-app and paste in the contents of the [properties.xml](assignment_resources/properties.xml) file**
+
+3. **If you use your own maven [web app](../assignment_009/ASSIGNMENT.md), modify the `pom.xml` file in the root directory of the web-app and paste in the contents of the [sonarqube plugin](assignment_resources/sonarqube_plugin.xml) file**
+- create a test directory inside your src directory of your web-app
+- You can leave out the tomcat configurtions, and also the `index.jsp` file modification
+
+4. **Clean and package your code into a deployable artifact and scan with sonerqube**
+eg.
+```
+mvn sonar:sonar
+
+```
+
+5. **Go to the sonerqube web portal and notice your project directory.**
+
+
+### PART IV (Maven Application 2)
 1. **Modify the contents of the `pom.xml` file on your maving server and paste in the contents of the [distribution_mgt.xml](assignment_resources/distribuion_mgt.xml) file within the build tags**  
 eg.
 ```

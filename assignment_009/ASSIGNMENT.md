@@ -162,7 +162,7 @@ sudo vi /opt/tomcat9/conf/tomcat-users.xml
 
 
 
-## PART II
+## PART II (Tomcat Server)
 
 1. Launch another Ubuntu Ec2 instance with ssh access
 
@@ -231,7 +231,7 @@ sudo starttomcat
 ```
 - Visit ```instance-ip-address:8080``` from your browser
 
-13.  **Modify Tomcat configurations to allow access to the manager app from any IP by editing the context.xml file**
+13.  **Click on the manager app, and follow the instruction to modify Tomcat configurations to allow access to the manager app from any IP by editing the `context.xml` file**
 e.g. 
 ```
 sudo vi /opt/tomcat9/webapps/manager/META-INF/context.xml
