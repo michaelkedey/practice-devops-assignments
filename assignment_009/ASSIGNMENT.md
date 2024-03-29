@@ -164,6 +164,7 @@ sudo vi /opt/tomcat9/conf/tomcat-users.xml
 
 
 ## PART II (Tomcat Server)
+<a name="part-ii-tomcat-server"></a>
 
 1. Launch another Ubuntu Ec2 instance with ssh access
 
@@ -271,6 +272,6 @@ mvn tomcat7:deploy
 18. **Visit `instance-ip-address:8080` (remote tomcat server) from your browser, click on the manager app and notice your web app. Click on your web app to open it.**
 
 19. **Did it work?**
-<a name="part-ii-tomcat-server"></a>
+
 
 ### HAPPY LEARNING.
