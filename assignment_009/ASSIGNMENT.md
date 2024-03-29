@@ -1,6 +1,6 @@
 # Setting Up Maven and Tomcat on EC2 Instance for CI/CD, and implementig a simple maven generated web app project.
 
-## PART I
+## PART I (Maven & Tomcat Server -2 in 1)
 
 1. **Launch a new EC2 instance and name it CICD, with ssh access and port 8080 open in your inbound rules.**
 
@@ -162,7 +162,9 @@ sudo vi /opt/tomcat9/conf/tomcat-users.xml
 
 
 
-## PART II
+
+## PART II (Tomcat Server)
+
 
 1. Launch another Ubuntu Ec2 instance with ssh access
 
@@ -231,7 +233,7 @@ sudo starttomcat
 ```
 - Visit ```instance-ip-address:8080``` from your browser
 
-13.  **Modify Tomcat configurations to allow access to the manager app from any IP by editing the context.xml file**
+13.  **Click on the manager app, and follow the instruction to modify Tomcat configurations to allow access to the manager app from any IP by editing the `context.xml` file**
 e.g. 
 ```
 sudo vi /opt/tomcat9/webapps/manager/META-INF/context.xml
@@ -270,5 +272,6 @@ mvn tomcat7:deploy
 18. **Visit `instance-ip-address:8080` (remote tomcat server) from your browser, click on the manager app and notice your web app. Click on your web app to open it.**
 
 19. **Did it work?**
+
 
 ### HAPPY LEARNING.

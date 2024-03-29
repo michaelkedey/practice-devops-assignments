@@ -2,49 +2,50 @@
 
 ### PART I (Servers)
 1. **Provission 4 servers for the 5 applications**
-- **[SonarQube Server](../assignment_010/ASSIGNMENT.md)**
-- **[Nexus Server](../assignment_010/ASSIGNMENT.md)**
-- **[Tomcat Server](../assignment_010/ASSIGNMENT.md)**
-- **[Maven Server](../assignment_010/ASSIGNMENT.md) (optional)**
-- **JENKINS SERVER**
-    - **t2.medium ec2 instance**
-    - **ssh access**
-    - **ssh into your jenkins server and change the hostname to jenkins**
-    - **switch to user `ubuntu`**
-    - **update and upgrade  the system**
-    - **Install [Java17-JRE](assignment_resources/jdk-vs-jre.md) and [fontconfig](assignment_resources/fontconfig.md)**
-        - **eg.**
-        ```
-        sudo apt install fontconfig openjdk-17-jre -y
-        java -version
-        ```
+    - **[SonarQube Server](../assignment_010/ASSIGNMENT.md#part-i-sonarqube-server)**
+    - **[Nexus Server](../assignment_010/ASSIGNMENT.md#part-ii---nexus-server)**
+    - **[Tomcat Server](../assignment_009/ASSIGNMENT.md#part-ii-tomcat-server)**
+    - **[Maven Server](../assignment_009/ASSIGNMENT.md#part-i-maven--tomcat-server--2-in-1) (optional)**
+    - **<span style="color:blue">JENKINS SERVER</span>**
 
-    - **Install Jenkins**
-        - **download the jenkins gpg key file from ` https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key` and save it in the `/usr/share/keyrings/` directory as `jenkins-keyring.asc`**
+        - **t2.medium ec2 instance**
+        - **ssh access**
+        - **ssh into your jenkins server and change the hostname to jenkins**
+        - **switch to user `ubuntu`**
+        - **update and upgrade  the system**
+        - **Install [Java17-JRE](assignment_resources/jdk-vs-jre.md) and [fontconfig](assignment_resources/fontconfig.md)**
+            - **eg.**
+            ```
+            sudo apt install fontconfig openjdk-17-jre -y
+            java -version
+            ```
 
-        - **add the jenkins repository `https://pkg.jenkins.io/debian-stable` to the `apt` configuration and use the gpg key you configured earlier `/usr/share/keyrings/jenkins-keyring.asc` for package verification**
-        ```
-        sudo wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary" | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
-        ```
+        - **Install Jenkins**
+            - **download the jenkins gpg key file from ` https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key` and save it in the `/usr/share/keyrings/` directory as `jenkins-keyring.asc`**
 
-        - **update and upgrade the system**
+            - **add the jenkins repository `https://pkg.jenkins.io/debian-stable` to the `apt` configuration and use the gpg key you configured earlier `/usr/share/keyrings/jenkins-keyring.asc` for package verification**
+            ```
+            sudo wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary" | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+            ```
 
-        - **install jenkins**
-        ```
-        sudo apt-get install jenkins
-        ```
+            - **update and upgrade the system**
 
-    - **Enable and start the jenkins service**
-    eg.
-    ```
-    sudo systemctl  enable jenkins
-    sudo systemctl start jenkins
-    ```
-    
-    - **Access jenkins on the web on port  8080**
-    - **Follow the instructions to get the initial passwaord and log in**
-    - **Install suggested plugins,and create the first admin user**
-    - **Maintain the default instance configuration `http://jenkins-server-ip-address:8080` and start using jenkins**
+            - **install jenkins**
+            ```
+            sudo apt-get install jenkins
+            ```
+
+        - **Enable and start the jenkins service**
+        eg.
+        ```
+        sudo systemctl  enable jenkins
+        sudo systemctl start jenkins
+        ```
+        
+        - **Access jenkins on the web on port  8080**
+        - **Follow the instructions to get the initial passwaord and log in**
+        - **Install suggested plugins,and create the first admin user**
+        - **Maintain the default instance configuration `http://jenkins-server-ip-address:8080` and start using jenkins**
 
 
 ### PART II (Git and Github)
