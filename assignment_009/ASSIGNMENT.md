@@ -159,12 +159,12 @@ sudo vi /opt/tomcat9/conf/tomcat-users.xml
 27. **Open ```instance-ip-address:8080```, navigate to the manager app, login with the user you created, scroll down and notice your web-app, open it**
 
 28. **Did it work?**
-<a name="part-i-maven--tomcat-server--2-in-1"></a>
+
 
 
 
 ## PART II (Tomcat Server)
-<a name="part-ii-tomcat-server"></a>
+
 
 1. Launch another Ubuntu Ec2 instance with ssh access
 
