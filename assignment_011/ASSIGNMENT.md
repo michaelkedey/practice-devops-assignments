@@ -6,8 +6,7 @@
     - **[Nexus Server](../assignment_010/ASSIGNMENT.md#part-ii---nexus-server)**
     - **[Tomcat Server](../assignment_009/ASSIGNMENT.md#part-ii-tomcat-server)**
     - **[Maven Server](../assignment_009/ASSIGNMENT.md#part-i-maven--tomcat-server--2-in-1) (optional)**
-    - **<span style="color:blue">JENKINS SERVER</span>**
-
+    - **JENKINS Server**
         - **t2.medium ec2 instance**
         - **ssh access**
         - **ssh into your jenkins server and change the hostname to jenkins**
