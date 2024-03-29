@@ -4,8 +4,8 @@
 1. **Provission 4 servers for the 5 applications**
 - **[SonarQube Server](../assignment_010/ASSIGNMENT.md#part-i-sonarqube-server)**
 - **[Nexus Server](../assignment_010/ASSIGNMENT.md#part-ii-nexus-server)**
-- **[Tomcat Server](../assignment_009/ASSIGNMENT.md/#part-ii-tomcat-server)**
-- **[Maven Server](../assignment_009/ASSIGNMENT.md/#part-i-maven--tomcat-server--2-in-1) (optional)**
+- **[Tomcat Server](../assignment_009/ASSIGNMENT.md#part-ii-tomcat-server)**
+- **[Maven Server](../assignment_009/ASSIGNMENT.md#part-i-maven--tomcat-server--2-in-1) (optional)**
 - **JENKINS SERVER**
     - **t2.medium ec2 instance**
     - **ssh access**
