@@ -1,6 +1,6 @@
 # Setting Up Maven and Tomcat on EC2 Instance for CI/CD, and implementig a simple maven generated web app project.
 
-## PART I
+## PART I (Maven & Tomcat Server -2 in 1)
 
 1. **Launch a new EC2 instance and name it CICD, with ssh access and port 8080 open in your inbound rules.**
 
