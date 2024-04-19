@@ -24,7 +24,11 @@
 
             - **add the jenkins repository `https://pkg.jenkins.io/debian-stable` to the `apt` configuration and use the gpg key you configured earlier `/usr/share/keyrings/jenkins-keyring.asc` for package verification**
             ```
-            sudo wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary" | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+            sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+            https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+            echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+            https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+            /etc/apt/sources.list.d/jenkins.list > /dev/null
             ```
 
             - **update and upgrade the system**
@@ -60,7 +64,7 @@
     - **you'll need to configure git credentials on your local  machine**
 
 
-### PART III (CICD)
+### PART III (CICD PIPELINE)
 1. **On your jenkins web inetrface, navigate to dashboard --> manage jenkins --> plugins --> available plugins**
 
 2. **Search and install these plugins:**
@@ -240,6 +244,9 @@
 20. **Alternatively, you can generate syntaxes for all your stages, create your `Jenkinsfile`, use that as your pipeline script and build once**
 
 20. **On your local environemnt, Push your updated web-app repo which now contains your own `Jenkinsfile` to your github**
+
+
+### PART IV (CICD - CD)
 
 
 ### CONGRATULATIONS, you have successfully built a jenkins pipeline
