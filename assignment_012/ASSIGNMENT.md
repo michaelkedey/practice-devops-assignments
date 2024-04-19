@@ -4,11 +4,11 @@
 
 ### 1. Set Up EC2 Instance
 
-- **Launch an EC2 instance and name it "docker".**
-- **Enable ssh acces**
-- **Public Ip**
-- **Assign Key pair**
-- **Connect to the EC2 instance using SSH.**
+- Launch an EC2 instance and name it "docker".
+- Enable ssh acces
+- Public Ip
+- Assign Key pair
+- Connect to the EC2 instance using SSH.
 
 ### 2. Install Docker
 
@@ -102,7 +102,7 @@ docker login -u your-dockerhub-username
 docker push your-dockerhub-username/web-app:v1
 ```
 
-- ** navgigate to your dockerhub account from your browser and notice your pushed image**
+- **navgigate to your dockerhub account from your browser and notice your pushed image**
 
 
 ### 4. Build Second & Third Docker Images
