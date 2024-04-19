@@ -49,17 +49,15 @@ docker --version
 
 ### 3. Build First Docker Image
 
-- **Build Docker Image from this [Web-app](https://github.com/JOMACS-IT/web-app.git) repo**
-
-- **Git clone this [Web-app](https://github.com/JOMACS-IT/web-app.git) repository**
+- Git clone this [Web-app](https://github.com/JOMACS-IT/web-app.git) repository
   
-- **Alternatively you can also clone [this repository](https://github.com/michaelkedey/web-app.git)**
+- Alternatively you can also clone [this repository](https://github.com/michaelkedey/web-app.git)
   
-- **Navigate to the root of the [Web-app](https://github.com/JOMACS-IT/web-app.git) repository you cloned**
+- Navigate to the root of the [Web-app](https://github.com/JOMACS-IT/web-app.git) repository you cloned
 
-- **Modify the contents of the `Dockerfile` and paste in the contents of [this Dockerfile](assignment_resources/Dockerfile)**
+- Delete the contents of the `Dockerfile` and paste in the contents of [this Dockerfile](assignment_resources/Dockerfile)
 
-- **Build the application into a `docker image`**
+- Build the application into a `docker image`
 ```
 docker build -t web-app:v1 .
 ```
@@ -67,7 +65,7 @@ docker build -t web-app:v1 .
 - on succesful build, you should see the docker image on your system when you run `docker images` to list all docker images on your system
 - run `docker ps` and `docker ps -a` to see all running docker containers on your system
 
-- **Run the `docker image` you've built as a `docker conatiner` on port 8080. The first port number `8080` is the port on which the system listens on for requests, ad whenever there is any request comming through that port, the system send the request to the second port number `8080` which is the port number the docker container is running on**
+- Run the `docker image` you've built as a `docker conatiner` on port 8080. The first port number `8080` is the port on which the system listens on for requests, ad whenever there is any request comming through that port, the system send the request to the second port number `8080` which is the port number the docker container is running on
 ```
 docker run -d --name web-app -p 8080:8080 web-app:v1
 ```
@@ -115,13 +113,13 @@ cd practice-web-app
 git checkout -b your-branch-name
 ```
 
-- **Read the instructions insid ethe `README.md` file, build and run the 2 docker images**
+- Read the instructions insid ethe `README.md` file, build and run the 2 docker images
   
-- **access the running conatiners via the browser on the system ports you associted with the conatiners**
+- access the running conatiners via the browser on the system ports you associted with the conatiners
 
-- **Be sure to map different system ports to the docker conatiners to avoid port conflic errors. Eg if you have `port 8080`(`-p 8080:80`) already associated with a running container `80`, you should associate another port to the new container. `8081:80`**
+- Be sure to map different system ports to the docker conatiners to avoid port conflic errors. Eg if you have `port 8080`(`-p 8080:80`) already associated with a running container `80`, you should associate another port to the new container. `8081:80`
 
-- **Be sure to open all ports maped to te docker containers in your security groups inbound rules**
+- Be sure to open all ports maped to te docker containers in your security groups inbound rules
 
 - **Push both images to dockerhub**
 
