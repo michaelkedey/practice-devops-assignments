@@ -20,20 +20,20 @@
   ```
 - alternatively you can also fork and clone [this repo](https://github.com/nuviagithub/example-voting-app/fork)
 
-- navigate through the source code directory structure and notice the existing `Dockerfiles`
+- navigate through the source code directory structure and notice the existing **`Dockerfiles`**
 - in the root of the source code directory:
-    1. create a `docker-compose.yml` file similar to this [docker-compose.yml](assignment_resources/docker-compose.yaml) to define the services and their depenednecies and settings.
-        - in the `docker-compose` file, we have defined the following services:
-            - `vote`
-            - `result`
-            - `worker`
-            - `redis`
-            - `db`
+    1. create a **`docker-compose.yml`** file similar to this [docker-compose.yml](assignment_resources/docker-compose.yaml) to define the services and their depenednecies and settings.
+        - in the **`docker-compose`** file, we have defined the following services:
+            - **`vote`**
+            - **`result`**
+            - **`worker`**
+            - **`redis`**
+            - **`db`**
         -  we also defined the following local volumes for the storage services to use:
-            - `redis-volume`
-            - `db-volume`
+            - **`redis-volume`**
+            - **`db-volume`**
             - this is neceasrry to enable persistance of data accros container reboots and deletions
-    2. create another file named `.env` and define your environment settings in there. see [.env](assignment_resources/env) for details
+    2. create another file named **`.env`** and define your environment settings in there. see [.env](assignment_resources/env) for details
 - build, pull and start all the containers defined in the [docker-compose.yaml](assignment_resources/docker-compose.yaml)
   ```
   docker compose up -d
@@ -52,7 +52,7 @@
         ```
         docker compose logs vote
         ```
-- if you get any errors such as `import error` on the `vote` service, copy the contents of the [requirments.txt](assignment_resources/requirments.txt) file and paste it in the `requirements.txt` file in the `vote` directory.
+- if you get any errors such as **`import error`** on the **`vote`** service, copy the contents of the [requirments.txt](assignment_resources/requirments.txt) file and paste it in the **`requirements.txt`** file in the **`vote`** directory.
 - to check the status of the containers, use 
     ```
     docker ps
@@ -88,11 +88,11 @@
     ```
     docker rmi -f $(docker images -a -q)
     ``` 
-- to run all images from your `docker-compose.yml` file, use 
+- to run all images from your **`docker-compose.yml`** file, use 
     ```
     docker compose up -d
     ``` 
-- to run a particular image from your `docker-compose.yml` file, use 
+- to run a particular image from your **`docker-compose.yml`** file, use 
     ```
     docker compose up -d image-name
     ``` 
@@ -115,7 +115,7 @@
         ```
         docker volume ls
         ```
-    - To attache the created volume to a service in the `docker-compose.yml` file, make sure the container is not running, and use
+    - To attache the created volume to a service in the **`docker-compose.yml`** file, make sure the container is not running, and use
         ```
         docker-compose run -d -v volume-name:path-in-container image-name
         ```
@@ -128,12 +128,9 @@
         ```
         docker volume prune
         ```
-    - use `ls /var/lib/docker/volumes` to view all local volumes on your system
+    - use **`ls /var/lib/docker/volumes`** to view all local volumes on your system
     
-    - To check the volumes for an image, use
-        ```
-        docker image inspect imageid or name:tag --format {{.Config.Volumes}}
-        ```
+
 ### Docker Hub
 - tag the 3 sservices with your dockerhub username and push to dockerhub
     ```
@@ -160,14 +157,14 @@
 
 ### ECR
 - on your aws console, navigate to ECR and create a private repository, with the same name as the image ypu want to push to ECR
-- After creation, click on the repo, and select `view push commands`
+- After creation, click on the repo, and select **`view push commands`**
 - Follow steps 1, 3 and 4 to succesfully push your images to ECR
     - Be sure to have `awscli` on your system
-    - Be sure to have the right credentials configured on `awscli` 
+    - Be sure to have the right credentials configured on **`awscli`**
         ```
         aws configure
         ```
-    - Be sure to have your aws user access key details from AWS console and use those to configure `awscli` , create and download or copy the access key details of your aws user if you don't have those.
+    - Be sure to have your aws user access key details from AWS console and use those to configure **`awscli`** , create and download or copy the access key details of your aws user if you don't have those.
 
 ### K8S
 - 
