@@ -92,6 +92,11 @@
     ```
     docker compose up -d
     ``` 
+- to stop and remove all containers(running and stopped) and networks, use
+    ```
+    docker-compose down
+    ```
+
 - to run a particular image from your **`docker-compose.yml`** file, use 
     ```
     docker compose up -d image-name
@@ -129,7 +134,12 @@
         docker volume prune
         ```
     - use **`ls /var/lib/docker/volumes`** to view all local volumes on your system
-    
+    - to access your apps, open **`ec2-public-ip-addres:port-specifid-in-docker-copomse-file`** from your browser
+    - youcan also use **`localhost:port`** to achieve same thing
+        eg.
+            ```
+            localhost:8080
+            ```
 
 ### Docker Hub
 - tag the 3 sservices with your dockerhub username and push to dockerhub
@@ -176,4 +186,4 @@
     ```
 
 ### K8S
-- 
+- kubernetes deployment files have been defined in the **`k8s-spcecifications`** directory.
