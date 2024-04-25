@@ -1,0 +1,43 @@
+version: "3"
+
+volumes:
+  redis-volume:
+  db-volume:
+
+services:
+  redis:
+    image: redis
+    volumes:
+      - redis-volume:/data
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - db-volume:/var/lib/postgresql/data
+    env_file:
+          - .env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+  vote:
+    build:
+      context: ./vote
+      dockerfile: Dockerfile
+    depends_on:
+      - redis
+    ports:
+      - 4000:80
+  result:
+    build:
+      context: ./result
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    ports:
+      - 4001:80
+  worker:
+    build:
+      context: ./worker
+      dockerfile: Dockerfile
+    depends_on:
+      - redis
+      - db

@@ -124,7 +124,7 @@ git checkout -b your-branch-name
 - **Push both images to dockerhub**
 
 
-### 4. Build FOURTH Docker Image
+### 5. Build FOURTH Docker Image
 
 - **Working from your `git brnach` of the cloned `practice-web-app` repo, create a new directory for your new project and navigate into it:**
 ```
@@ -187,7 +187,7 @@ docker tag image-name:tag your-dockerhub-username/image-name:your-tag
 docker push your-dockerhub-username/html-app:your-tag
 ```
 
-### 4. Push All Images to ECR (Amazon Elstic Container Registry)
+### 6. Push All Images to ECR (Amazon Elstic Container Registry)
 
 - **install aws cli**
 ```
@@ -225,5 +225,34 @@ eg.
 ```
 docker pull michaelkedey/web-app:michaelkedey
 ```
+
+### 6. Build Sixth Docker Image From Colleague's pulled web-app image (apache-web-app)
+
+- **Create a new directory inside the root of the `practice-web-app` directory and cd into it.**
+```
+mkdir another-app && cd another-app
+```
+- **Inside the new directory, create a new file called `Dockerfile` and add the following content**
+```
+# Use your colleagues first web-app image as the base image
+FROM michaelkedey/html-app:v1
+
+COPY index2.html /var/www/html/index.html
+
+# Start Apache HTTP Server in the foreground
+CMD ["apache2ctl", "-D", "FOREGROUND"]
+```
+- **Build the image**
+```
+docker build -t another-app .
+```
+- **Run the image**
+```
+docker run -p 8081:80 another-app
+```
+- **Open your browser and navigate to `http://localhost:8081`**
+
+- **You should see the same page as the one you saw when you ran the image from your colleague's dockerhub account**
+
 
 ### HAPPY LEARNING
