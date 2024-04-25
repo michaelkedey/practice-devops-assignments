@@ -166,5 +166,14 @@
         ```
     - Be sure to have your aws user access key details from AWS console and use those to configure **`awscli`** , create and download or copy the access key details of your aws user if you don't have those.
 
+
+### Github 
+- Push all the changes made in your sourcecode repo to your github account.
+    ```
+    git add .
+    git commit -m "commit message"
+    git push origin branch-name
+    ```
+
 ### K8S
 - 
