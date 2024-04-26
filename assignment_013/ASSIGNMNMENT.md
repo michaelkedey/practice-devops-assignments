@@ -34,7 +34,7 @@
             - **`db-volume`**
             - this is neceasrry to enable persistance of data accros container reboots and deletions
     2. create another file named **`.env`** and define your environment settings in there. see [.env](assignment_resources/env) for details
-- build, pull and start all the containers defined in the [docker-compose.yaml](assignment_resources/docker-compose.yaml)
+- build, pull and start all the containers defined in the [docker-compose.yml](assignment_resources/docker-compose.yml)
   ```
   docker compose up -d
   ```
