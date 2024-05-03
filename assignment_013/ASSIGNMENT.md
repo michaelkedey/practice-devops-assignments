@@ -290,6 +290,16 @@ node-ip:node-port
 - create the services
 - if you can't access the services from your browser using the `node-ip:nope-port` forward the service ports to your local host and use `localhost:localhost-port` to access the service.
 - to stop your minikube node, run `minikube stop`
+
+#### To Do
+- create a directory called web-app
+- inside the web-app directory create a deployment and service files for the web-app
+    - see [web-app-deployment.yaml](assignment_resources/web-app-deployment.yaml)
+    - see [web-app-service.yaml](assignment_resources/web-app-service.yaml)
+- create the deployment and service for your web up usiing the dockerhub web-app image you pushed from the previous assignment
+- run your pods and port forward the ports when neceasrry.
+be sure to be able to access your pods from a web browser.
+  
 - add all your changes to github and push t your repo.
   ```
   git add .

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-app
+  labels:
+    app: web-app
+spec:
+  type: NodePort
+  ports: 
+    - name: web-app-service-port
+      port: 4001
+      targetPort: 8080
+      nodePort: 31002
+  selector:
+    app: web-app
