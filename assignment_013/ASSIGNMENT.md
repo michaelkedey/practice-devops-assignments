@@ -187,3 +187,111 @@
 
 ### K8S
 - kubernetes deployment files have been defined in the **`k8s-spcecifications`** directory.
+- navigate to the **`k8s-spcecifications`** durecoty and notice the various **`.yaml`** configuration files.
+- make sure you have [minikube](https://minikube.sigs.k8s.io/docs/start/) installed and configured
+- to start the minikube sigle node cluster, run **`minikube start`**
+- to verify if there are any pods running on your nod, use **`kubectl get pods`**
+- to view [namespaces](assignment_resources/namespace.md) on your node, run **`kubectl get ns`**
+- use **`kubectl create ns example-voting-app`** to crate a new namespace and create the resources in there.
+- to switch to the name space you created, use
+  ```
+  kubectl config set-context --current --namespace=example-voting-app
+  ```
+- to view the current ns (namespace) you're on, use **`kubectl config view --minify -o jsonpath={..namespace}`**
+- to view all the resources in the namespace, use **`kubectl get all`**
+- inside the **`k8s-spcecifications`** run the various deployment files to create the deployments
+    - **`db-deployment.yaml`**
+    - **`redis-deployment.yaml`**
+    - **`result-deployment.yaml`**
+    - **`vote-deployment.yaml`**
+    - **`worker-deployment.yaml`**
+    - eg.
+        ```
+        kubectl create -f db-deployment.yaml
+        ``` 
+- verify that the deployments are created
+  ```
+  kubectl get deployments
+  ```
+- verify the pods are created
+  ```
+  kubectl get pods
+  ```
+
+- inorder to access the pods in the deployment we need to create services for the pods.
+- open the various `service.yaml` files and notice the configurations, pay attention to the various `port` numbers
+    - port
+    - target port
+    - node port
+
+- inside the **`k8s-spcecifications`** run the various service files to create the services
+    - **`db-service.yaml`**
+    - **`redis-service.yaml`**
+    - **`result-service.yaml`**
+    - **`vote-service.yaml`**
+    - **`worker-service.yaml`**
+    - eg.
+        ```
+        kubectl create -f db-service.yaml
+        ``` 
+- verify the services are created
+  ```
+  kubectl get svc
+  ```
+- to access the vote and result `services` from your browser, you can get the the `ip address` of your node and the `node port` for the particular service
+- us **`kubectl describe svc vote`** to get detals about the vote service, including the node port
+to get the node ip address, notice the internal ip adrress:
+```
+kubectl get nodes -o wide
+```
+- you can also access the service from within the cluster by running
+  ```
+  curl node-ip:nodeport
+  ```
+- on your browser
+```
+node-ip:node-port
+```
+  - if this fail you can forward the service port to a port on your local host, that way you can access the service from your localhost port.
+  - to forward the service port to your local host port, use
+    ```
+    kubectl port-forward service/result 5001:5001 &
+    ```
+  - this will forward the service port 5001 to your local host port 5001
+  - you can then access the `service` service on your browser via **`localhost:5001`**
+  - to stop the port forwarding, use the command **`jobs`** to get the job id, then use the **`kill`** command to kill the job
+    ```
+    kill %1
+    ```
+- in order to simplify creation of resources, we can modify the yaml files to acheieve that.
+- first delete all the resources in yoour namespace
+  ```
+  kubectl delete deployment,pod,service --all
+  ```
+- verify if there's any resource in your ns
+  ```
+  kubectl get all
+  ```
+- in the **`k8s-spcecifications`** directory, create 2 files
+    - deployments.yaml
+    - services.yaml
+- create 2 directories
+    - **`deployments`**
+    - **`services`**
+- modify the contents of the **`deployments.yaml`** file. see [deployments.yaml](assignment_resources/deployments.yaml) for details
+- modify the contents of the **`services.yaml`** file in similar manner. see [services.yaml](assignment_resources/services.yaml)
+- move the individual deployments to the deployment directory
+- do similar thing for the services
+- modify the port numbers if you wish to
+- run the the command to create all the deployments
+  ```
+  kubectl create -f deployments.yaml
+  ```
+- create the services
+- if you can't access the services from your browser using the `node-ip:nope-port` forward the service ports to your local host and use `localhost:localhost-port` to access the service.
+- to stop your minikube node, run `minikube stop`
+
+### HAPPY LEARNING.
+
+
+     
