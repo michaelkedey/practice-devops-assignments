@@ -290,6 +290,12 @@ node-ip:node-port
 - create the services
 - if you can't access the services from your browser using the `node-ip:nope-port` forward the service ports to your local host and use `localhost:localhost-port` to access the service.
 - to stop your minikube node, run `minikube stop`
+- add all your changes to github and push t your repo.
+  ```
+  git add .
+  git commit -m "commit message"
+  git push
+  ```
 
 ### HAPPY LEARNING.
 
