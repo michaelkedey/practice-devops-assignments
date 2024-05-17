@@ -1,0 +1,28 @@
+name: Sync with ArgoCD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    env:
+      ARGOCD_SERVER_URL: ${{ secrets.ARGOCD_SERVER_URL }}
+      ARGOCD_AUTH_TOKEN: ${{ secrets.ARGOCD_AUTH_TOKEN }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install ArgoCD CLI
+        run: |
+          curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+          chmod +x /usr/local/bin/argocd
+
+      - name: Sync application with ArgoCD
+        run: |
+          argocd login $ARGOCD_SERVER_URL --username=admin --password=$ARGOCD_AUTH_TOKEN --insecure
+          argocd app sync my-application
