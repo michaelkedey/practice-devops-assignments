@@ -74,8 +74,8 @@
 
 - in the `k8s` directory, create another directory called games, and specify a [yaml manifest](assignment_resources/tetris.yaml) file for deploying a tetris image.
     - see [tetris.yaml](assignment_resources/tetris.yaml)
-- push your changs to guthub and use argocd to create the tetris application.
-- create manifest files to deploy deploy these images via argocd
+- push your changs to github and use argocd to create the tetris application.
+- create manifest files to deploy these images via argocd
     - sevenajay/mario
     - chriscloudaz/netflix
     - remember to push your changes to github and build with argocd
