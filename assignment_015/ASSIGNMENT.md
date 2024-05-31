@@ -22,9 +22,9 @@
         brew install helm
     ```
 - check helm version
-```
-    helm version
-``
+    ```
+        helm version
+    ```
 - generate chart
     ```
     helm create vote-app
