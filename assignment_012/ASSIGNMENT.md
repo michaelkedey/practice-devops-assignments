@@ -1,4 +1,4 @@
-## BUILDING DOCKER IMAGES AND RUNNING DOCKER CONTAINERS
+## ## DevOps Journey: BUILDING DOCKER IMAGES AND RUNNING DOCKER CONTAINERS
 
 ##### This hands-on Docker project will guide you through setting up an EC2 instance, installing Docker, building Docker images from web applications, and running Docker containers. You'll also push these images to DockerHub and Amazon Elastic Container Registry (ECR).
 

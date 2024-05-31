@@ -1,4 +1,4 @@
-## CICD PIPELINE WITH JENKINS, SONARQUBE, TOMCAT, MAVEN AND NEXUS
+## ## DevOps Journey: CICD PIPELINE WITH JENKINS, SONARQUBE, TOMCAT, MAVEN AND NEXUS
 
 ### PART I (Servers)
 1. **Provission 4 servers for the 5 applications**

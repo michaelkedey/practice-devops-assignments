@@ -1,4 +1,4 @@
-# Setting Up Maven and Tomcat on EC2 Instance for CI/CD, and implementig a simple maven generated web app project.
+# ## DevOps Journey: Setting Up Maven and Tomcat on EC2 Instance for CI/CD, and implementig a simple maven generated web app project.
 
 ## PART I (Maven & Tomcat Server -2 in 1)
 
