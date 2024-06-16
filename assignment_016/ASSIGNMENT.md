@@ -9,11 +9,11 @@ minikube start --extra-config=apiserver.enable-aggregator-routing=true
     ```
     $ kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
     ```
-  - if you're running locally, consider using the [metrics-server.yaml](https://github.com/michaelkedey/k8s/blob/main/helm/pod_scalling/metrics-server/metrics-server.yaml) file.
+  - if you're running locally, consider using the [metrics-server.yaml](https://github.com/michaelkedey/k8s/blob/main/helm/pod_scalling/metrics-server/metrics-server-components.yaml) file.
       ```
       $ kubectl apply -f metrics-server.yaml
       ```
-  - if you run into `readines probe failed` error for the `metrics-server pods` while using the first option, consider using the [metrics-server.yaml](https://github.com/michaelkedey/k8s/blob/main/helm/pod_scalling/metrics-server/metrics-server.yaml) file to deploy the [metrics-server](https://github.com/michaelkedey/k8s/blob/main/helm/pod_scalling/metrics-server/components.yaml) locally.
+  - if you run into `readines probe failed` error for the `metrics-server pods` while using the first option, consider using the [metrics-server.yaml](https://github.com/michaelkedey/k8s/blob/main/helm/pod_scalling/metrics-server/metrics-server-components.yaml) file to deploy the [metrics-server](https://github.com/michaelkedey/k8s/blob/main/helm/pod_scalling/metrics-server-components.yaml) locally.
 **You can also install a metrics server on your cluster with helm**
   - install metrics-server
       ```
